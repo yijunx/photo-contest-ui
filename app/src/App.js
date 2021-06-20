@@ -1,10 +1,15 @@
 import React from "react";
-import Setup from "./tutorial/1-useState/setup/5-useState-counter";
+import Photo from "./components/photoBlock";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
+  // returning jsx
   return (
-    <div className="container">
-      <Setup />
+    <div>
+      <Header />
+      <Photo title="nice winter" />
+      <Footer />
     </div>
   );
 }
