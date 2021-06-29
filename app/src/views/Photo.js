@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { useParams } from "react-router";
 import Loader from "../components/Loader";
+import { useAxiosGet } from "../hooks/HttpRequest";
 
 function Photo() {
   const { id } = useParams();
@@ -9,36 +9,10 @@ function Photo() {
   // which is outside the devcon
   // thus we can just use localhost...
   const url = `http://localhost:8000/api/photos/${id}`;
-  const [photo, setPhoto] = useState({
-    loading: false,
-    data: null,
-    error: false,
-  });
-  let content = null;
 
-  useEffect(() => {
-    setPhoto({
-      loading: true,
-      data: null,
-      error: false,
-    });
-    axios
-      .get(url)
-      .then((response) => {
-        setPhoto({
-          loading: false,
-          data: response.data,
-          error: false,
-        });
-      })
-      .catch(() => {
-        setPhoto({
-          loading: false,
-          data: null,
-          error: true,
-        });
-      });
-  }, [url]);
+  let photo = useAxiosGet(url);
+
+  let content = null;
 
   if (photo.loading) {
     content = <Loader />;
