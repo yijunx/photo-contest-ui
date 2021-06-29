@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import About from "./views/About";
+import Photo from "./views/Photo";
 
 function App() {
   // returning jsx
@@ -11,16 +12,19 @@ function App() {
   // Link always in router
   // switch picks one!
   return (
-    <div>
+    <div className="relative pb-10 min-h-screen">
       <Router>
         <Header />
         <div className="p-3">
           <Switch>
             <Route exact path="/">
-              <Home></Home>
+              <Home />
             </Route>
             <Route path="/about">
-              <About></About>
+              <About />
+            </Route>
+            <Route path="/photos/:id">
+              <Photo />
             </Route>
           </Switch>
         </div>

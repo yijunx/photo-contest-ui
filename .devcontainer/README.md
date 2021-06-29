@@ -35,3 +35,9 @@ yarn add @fortawesome/react-fontawesome
 ```
 yarn add react-router-dom
 ```
+
+# request
+
+```
+yarn add axios
+```
