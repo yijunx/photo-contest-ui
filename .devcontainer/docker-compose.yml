@@ -11,7 +11,7 @@ services:
       - ~/etc/timezone:/opt/yijunx/etc/timezone
     command: ["tail -f /dev/null"]
     ports:
-      - 3000:3000
+      - 3001:3000
     networks:
       - default
 
